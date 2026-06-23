@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Live Configuration</title>
+        <title lang="de-DE">Live-Konfiguration</title>
+        <title lang="pl-PL">Konfiguracja Produkcyjna</title>
+        <title lang="en-GB">Live Configuration</title>
+        <name>payuLiveConfiguration</name>
+        <input-field type="text">
+            <name>posId</name>
+            <label>PosId</label>
+            <label lang="pl-PL">Id punktu płatności (pos_id)</label>
+            <helpText>Payment point id</helpText>
+            <helpText lang="de-DE">ID des Zahlungspunktes</helpText>
+            <helpText lang="pl-PL">Id punktu płatności</helpText>
+            <helpText lang="en-GB">Payment point id</helpText>
+        </input-field>
+        <input-field type="password">
+            <name>md5Key</name>
+            <label>MD5 key</label>
+            <label lang="de-DE">MD5-Taste</label>
+            <label lang="pl-PL">Drugi klucz (MD5)</label>
+            <label lang="en-GB">MD5 key</label>
+            <helpText>Second key (MD5)</helpText>
+            <helpText lang="de-DE">Zweiter Schlüssel (MD5)</helpText>
+            <helpText lang="pl-PL">Drugi klucz (MD5)</helpText>
+            <helpText lang="en-GB">Second key (MD5)</helpText>
+        </input-field>
+        <input-field type="text">
+            <name>clientId</name>
+            <label>OAuth Client ID</label>
+            <label lang="de-DE">OAuth-Client-ID</label>
+            <label lang="pl-PL">Protokół OAuth - client_id</label>
+            <label lang="en-GB">OAuth Client ID</label>
+            <helpText>Protokół OAuth - client_id</helpText>
+            <helpText lang="de-DE">OAuth-Protokoll - client_id</helpText>
+            <helpText lang="pl-PL">Protokół OAuth - client_id</helpText>
+            <helpText lang="en-GB">OAuth protocol - client_id</helpText>
+        </input-field>
+        <input-field type="password">
+            <name>clientSecret</name>
+            <label>OAuth Client Secret</label>
+            <label lang="de-DE">OAuth-Client-Geheimnis</label>
+            <label lang="pl-PL">Protokół OAuth - client_secret</label>
+            <label lang="en-GB">OAuth Client Secret</label>
+            <helpText>OAuth protocol - client_secret</helpText>
+            <helpText lang="de-DE">OAuth-Protokoll - client_secret</helpText>
+            <helpText lang="pl-PL">Protokół OAuth - client_secret</helpText>
+            <helpText lang="en-GB">OAuth protocol - client_secret</helpText>
+        </input-field>
+        <component name="cr-payment-test-connection">
+            <name>liveCheckCredentials</name>
+        </component>
+    </card>
+    <card>
+        <title>Sandbox Configuration</title>
+        <title lang="de-DE">Sandbox-Konfiguration</title>
+        <title lang="pl-PL">Konfiguracja Sandbox</title>
+        <title lang="en-GB">Sandbox Configuration</title>
+        <name>payuSandBoxConfiguration</name>
+        <input-field type="bool">
+            <name>sandbox</name>
+            <label>Włącz Sandbox</label>
+            <label lang="de-DE">Sandbox einschalten</label>
+            <label lang="pl-PL">Włącz Sandbox</label>
+            <label lang="en-GB">Sandbox enabled</label>
+        </input-field>
+        <input-field type="text">
+            <name>sandboxPosId</name>
+            <label>PosId</label>
+            <label lang="pl-PL">Id punktu płatności (pos_id)</label>
+            <helpText>Payment point id</helpText>
+            <helpText lang="de-DE">ID des Zahlungspunktes</helpText>
+            <helpText lang="pl-PL">Id punktu płatności</helpText>
+            <helpText lang="en-GB">Payment point id</helpText>
+        </input-field>
+        <input-field type="password">
+            <name>sandboxMd5Key</name>
+            <label>MD5 key</label>
+            <label lang="de-DE">MD5-Taste</label>
+            <label lang="pl-PL">Drugi klucz (MD5)</label>
+            <label lang="en-GB">MD5 key</label>
+            <helpText>Second key (MD5)</helpText>
+            <helpText lang="de-DE">Zweiter Schlüssel (MD5)</helpText>
+            <helpText lang="pl-PL">Drugi klucz (MD5)</helpText>
+            <helpText lang="en-GB">Second key (MD5)</helpText>
+        </input-field>
+        <input-field type="text">
+            <name>sandboxClientId</name>
+            <label>OAuth Client ID</label>
+            <label lang="de-DE">OAuth-Client-ID</label>
+            <label lang="pl-PL">Protokół OAuth - client_id</label>
+            <label lang="en-GB">OAuth Client ID</label>
+            <helpText>Protokół OAuth - client_id</helpText>
+            <helpText lang="de-DE">OAuth-Protokoll - client_id</helpText>
+            <helpText lang="pl-PL">Protokół OAuth - client_id</helpText>
+            <helpText lang="en-GB">OAuth protocol - client_id</helpText>
+        </input-field>
+        <input-field type="password">
+            <name>sandboxClientSecret</name>
+            <label>OAuth Client Secret</label>
+            <label lang="de-DE">OAuth-Client-Geheimnis</label>
+            <label lang="pl-PL">Protokół OAuth - client_secret</label>
+            <label lang="en-GB">OAuth Client Secret</label>
+            <helpText>OAuth protocol - client_secret</helpText>
+            <helpText lang="de-DE">OAuth-Protokoll - client_secret</helpText>
+            <helpText lang="pl-PL">Protokół OAuth - client_secret</helpText>
+            <helpText lang="en-GB">OAuth protocol - client_secret</helpText>
+        </input-field>
+        <component name="cr-payment-test-connection">
+            <name>sandboxCheckCredentials</name>
+        </component>
+    </card>
+</config>

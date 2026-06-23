@@ -1,0 +1,94 @@
+{% sw_extends '@CrehlerPaymentBundle/storefront/component/payment/payment-form.html.twig' %}
+
+{% block crehler_payment_method_card_form %}
+    {# Validate this is PayU card handler #}
+    {% if selectedCardPayment and 'PayU' in selectedCardPayment.handlerIdentifier %}
+        {% set savedCards = selectedCardPayment.extensions[constant('Crehler\\PaymentBundle\\Infrastructure\\StoreApi\\CustomerSavedCard\\SavedCardTokenResponse::API_ALIAS')] %}
+
+        {% if config('CrehlerPayU.config.sandbox') === true %}
+            {% set posId = config('CrehlerPayU.config.sandboxPosId') %}
+            {% set payuScriptUrl = 'https://secure.snd.payu.com/javascript/sdk' %}
+        {% else %}
+            {% set posId = config('CrehlerPayU.config.posId') %}
+            {% set payuScriptUrl = 'https://secure.payu.com/javascript/sdk' %}
+        {% endif %}
+
+        {% set options = {
+            posId: posId,
+            payuScriptUrl: payuScriptUrl
+        } %}
+
+        {# Hidden input to indicate tokenization mode #}
+        <input type="hidden" name="payuCardMode" value="tokenize">
+
+        <div class="payu-card-payment-container"
+             data-card-tokenization="true"
+             data-card-tokenization-options='{{ options|json_encode }}'>
+
+            <div class="payu-card-form-header">
+                <img src="{{ asset('bundles/crehlerpayu/icons/mastercard.svg') }}" alt="Mastercard" class="payu-card-brand-icon" onerror="this.style.display='none'">
+                <img src="{{ asset('bundles/crehlerpayu/icons/visa.svg') }}" alt="Visa" class="payu-card-brand-icon" onerror="this.style.display='none'">
+                <span class="payu-card-form-title">{{ "payu.paymentMethod.tokenize"|trans|default("Wprowadz dane karty") }}</span>
+            </div>
+
+            {# Card input iframe #}
+            <div id="payu-card-iframe-container" class="payu-card-iframe-container"></div>
+
+            {# Bottom section: saved cards & save card option #}
+            <div class="payu-card-payment-bottom-container">
+                {% if savedCards is not empty %}
+                    {# Saved-card dropdown driven by the shared bundle cr-saved-card-selector. #}
+                    <div class="payu-saved-cards" data-saved-card-selector="true">
+                        {# Hidden input the bundle selector writes the chosen token into; read by CardHandler. #}
+                        <input type="hidden" name="payuCardToken" data-saved-card-token>
+
+                        {# Saved cards dropdown — shared markup from CrehlerPaymentBundle #}
+                        {% sw_include '@CrehlerPaymentBundle/storefront/component/payment/saved-cards-dropdown.html.twig' with {
+                            savedCards: savedCards,
+                            wrapperClass: 'payu-saved-cards-dropdown',
+                            placeholderText: "payu.paymentMethod.savedCards"|trans|default("Zapisane karty"),
+                            placeholderIcon: 'credit-card',
+                        } only %}
+
+                        <div class="payu-bundle-save-card" data-save-card-wrapper>
+                            <input id="multiUseToken"
+                                   type="checkbox"
+                                   name="saveCard"
+                                   class="form-check-input">
+                            <label for="multiUseToken">
+                                {{ "payu.paymentMethod.saveCard"|trans|default("Zapisz karte na przyszlosc") }}
+                            </label>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="payu-bundle-save-card">
+                        <input id="multiUseToken"
+                               type="checkbox"
+                               name="saveCard"
+                               class="form-check-input">
+                        <label for="multiUseToken">
+                            {{ "payu.paymentMethod.saveCard"|trans|default("Zapisz karte na przyszlosc") }}
+                        </label>
+                    </div>
+                {% endif %}
+            </div>
+
+            {# Error message #}
+            <div class="payu-card-payment-error"></div>
+
+            {# Loading indicator #}
+            <div class="payu-card-payment-loading">
+                <div class="spinner-border spinner-border-sm text-primary" role="status">
+                    <span class="visually-hidden">{{ "general.loading"|trans }}</span>
+                </div>
+                <span>{{ "payu.paymentMethod.processing"|trans|default("Przetwarzanie platnosci...") }}</span>
+            </div>
+
+            {# Security info #}
+            <div class="payu-security-info">
+                {% sw_icon 'lock' style { size: 'xs' } %}
+                <span>{{ "payu.paymentMethod.securePayment"|trans|default("Bezpieczna platnosc szyfrowana SSL") }}</span>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

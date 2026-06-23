@@ -1,0 +1,60 @@
+{
+  "name": "crehler/payu",
+  "description": "PayU Shopware Integration",
+  "type": "shopware-platform-plugin",
+  "version": "6.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Crehler Sp. z o. o.",
+      "email": "support@crehler.com",
+      "homepage": "https://crehler.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Paweł Cebernik",
+      "email": "p.cebernik@crehler.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+    "shopware/core": "~6.7",
+    "openpayu/openpayu": "2.3.*",
+    "crehler/payment-bundle": "^6.0 >=6.0.2"
+  },
+  "require-dev": {
+    "rector/rector": "^2.4"
+  },
+  "extra": {
+    "shopware-plugin-class": "Crehler\\PayU\\CrehlerPayU",
+    "label": {
+      "de-DE": "PayU Zahlungsgateway by CREHLER",
+      "pl-PL": "Bramka płatności PayU by CREHLER",
+      "en-GB": "PayU payment gateway by CREHLER"
+    },
+    "description": {
+      "de-DE": "PayU ist ein führender Anbieter von Online-Zahlungen in Polen und bietet eine breite Palette von Zahlungsmethoden an, darunter Zahlungskarten, Banküberweisungen und BLIK. Mit PayU können Sie einfach und sicher Zahlungen in Ihrem Online-Shop annehmen.",
+      "pl-PL": "PayU to wiodący dostawca płatności online w Polsce, oferujący szeroki zakres metod płatności, w tym karty płatnicze, przelewy bankowe i BLIK. Z PayU możesz łatwo i bezpiecznie przyjmować płatności w swoim sklepie internetowym.",
+      "en-GB": "PayU is a leading provider of online payments in Poland, offering a wide range of payment methods, including payment cards, bank transfers, and BLIK. With PayU, you can easily and securely accept payments in your online store."
+    },
+    "manufacturerLink": {
+      "de-DE": "https://store.shopware.com/crehler.html",
+      "en-GB": "https://store.shopware.com/en/crehler.html"
+    },
+    "supportLink": {
+      "de-DE": "https://crehler.com/",
+      "en-GB": "https://crehler.com/"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Crehler\\PayU\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Crehler\\PayU\\Tests\\": "tests/"
+    }
+  }
+}

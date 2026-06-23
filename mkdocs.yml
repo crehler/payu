@@ -1,0 +1,70 @@
+site_name: Bramka płatności PayU by CREHLER — dokumentacja
+site_description: Integracja bramki płatniczej PayU ze sklepem Shopware 6 (by CREHLER).
+site_author: Crehler Sp. z o.o.
+site_url: https://crehler.github.io/payu/
+
+# Publiczny mirror produkcyjny.
+repo_url: https://github.com/crehler/payu
+repo_name: crehler/payu
+
+docs_dir: docs
+
+nav:
+  - Start: index.md
+  - Instalacja: instalacja.md
+  - Konfiguracja: konfiguracja.md
+  - Store API (headless): store-api.md
+  - Zwroty płatności: zwroty.md
+
+theme:
+  name: material
+  language: pl
+  logo: images/payu_logo.jpg
+  favicon: images/payu_logo.jpg
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Tryb ciemny
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Tryb jasny
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.tracking
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - toc.follow
+
+plugins:
+  - search:
+      lang: pl
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - md_in_html
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://crehler.com/
+      name: crehler.com
+
+copyright: © Crehler Sp. z o.o.

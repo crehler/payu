@@ -1,0 +1,13 @@
+{
+  "payu": {
+    "paymentMethod": {
+      "redirect": "Przekierowanie do strony PayU",
+      "tokenize": "Wprowadz dane karty ponizej",
+      "savedCards": "Zapisane karty",
+      "saveCard": "Zapisz karte na przyszlosc",
+      "noSavedCards": "Brak zapisanych kart",
+      "processing": "Przetwarzanie platnosci...",
+      "securePayment": "Bezpieczna platnosc szyfrowana SSL"
+    }
+  }
+}

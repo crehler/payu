@@ -1,0 +1,23 @@
+{
+  "base": "/bundles/crehlerpayu/administration/",
+  "entryPoints": {
+    "crehler-pay-u": {
+      "css": [],
+      "dynamic": [],
+      "js": [
+        "/bundles/crehlerpayu/administration/assets/crehler-pay-u-l0sNRNKZ.js"
+      ],
+      "legacy": false,
+      "preload": []
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "7.1.0",
+    7,
+    1,
+    0
+  ],
+  "viteServer": null
+}

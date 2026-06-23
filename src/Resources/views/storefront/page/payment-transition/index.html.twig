@@ -1,0 +1,13 @@
+{% sw_extends '@CrehlerPaymentBundle/storefront/page/payment-transition/index.html.twig' %}
+
+{# Renders the PayU logo on the shared transition page, from PayU's OWN asset package
+   (@CrehlerPayU). Guarded on providerLogo == 'payu' and delegating to parent()
+   otherwise, so this override composes with other providers' overrides and never shows
+   the PayU logo for a different gateway. #}
+{% block cr_payment_transition_provider_logo %}
+    {% if providerLogo == 'payu' %}
+        <img src="{{ asset('icons/payu_logo.jpg', '@CrehlerPayU') }}" alt="PayU" class="payment-provider-logo">
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

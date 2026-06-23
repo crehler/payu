@@ -1,0 +1,8 @@
+#store-api:
+#  resource: '../../StoreApi/Route'
+#  type: attribute
+#  exclude: '../../StoreApi/Route/Abstract*.php'
+#api:
+#  resource: '../../Api/Controller'
+#  type: attribute
+#  exclude: '../../Api/Controller/Abstract*.php'
